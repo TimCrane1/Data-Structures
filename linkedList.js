@@ -24,8 +24,34 @@ List.prototype.append = function(value){
     this.length++;
 }
 
-List.prototype.insert = function(){
-
+//TODO currently inserting one position too far ahead
+List.prototype.insert = function(value, index){
+    var current = this.head;
+    var previous;
+    if (index === 0) {
+        this.head = new Node(value);
+        if (this.length != 0) {
+            this.head.next = current;
+        }
+    }
+    else if (index >= this.length -1) {
+        while (current.next) {
+            current = current.next;
+        }
+        current.next = new Node(value);
+    }
+    else {
+        previous = current;
+        for (var i = 0; i < this.length; i++) {
+            previous = current;
+            current = current.next;
+            if (i === index) {
+                previous.next = new Node(value);
+                previous.next.next = current;
+            }
+        }
+    }
+    this.length++;
 }
 
 List.prototype.contains = function(target){
