@@ -24,22 +24,31 @@ List.prototype.append = function(value){
     this.length++;
 }
 
-List.prototype.insert(){
+List.prototype.insert = function(){
 
 }
 
-List.prototype.contains(value){
+List.prototype.contains = function(target){
 //traverse list if value found return true, else, return false
+    if (this.length === 0) return false;
+    var current = this.head;
+    for (var i = 0; i < this.length; i++) {
+        if (current.value === target) {
+            return true;
+        }
+        current = current.next;
+    }
+    return false;
 }
 
-List.prototype.remove(index){
+List.prototype.remove = function(index){
 //traverse to the object, connect previous and next, delete node
 }
 
-List.prototype.length(){
+List.prototype.length = function(){
     return this.length;
 }
 
-List.prototype.indexOf(){
+List.prototype.indexOf = function(){
     return /*index of first instance of value, else return -1 if not found*/
 }
