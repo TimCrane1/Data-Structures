@@ -9,9 +9,9 @@ var LinkedList = function() {
       list.head = new Node(value);
       list.tail = list.head;
     } else {
-      var temp = this.tail;
+      var temp = list.tail;
       temp.next = new Node(value);
-      this.tail = temp.next;
+      list.tail = temp.next;
     }
     console.log('list', list)
   };
@@ -39,7 +39,6 @@ var LinkedList = function() {
   };
   return list; 
   };
-
 
 var Node = function(value) {
   var node = {};
