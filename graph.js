@@ -1,9 +1,9 @@
-
-
+// Prototypal style
 var Graph = function() {
   this.nodes = [];
 };
 
+//create node, object for edges
 Graph.prototype.addNode = function(node) {
   this.nodes.push(node);
   this.edges = {};
@@ -37,6 +37,7 @@ Graph.prototype.hasEdge = function(fromNode, toNode) {
   return false;
  };
 
+//create edge as key/value pair in the edges object
 Graph.prototype.addEdge = function(fromNode, toNode){
   this.edges[fromNode] = toNode;
 };
@@ -49,6 +50,7 @@ Graph.prototype.removeEdge = function(fromNode, toNode) {
   }
 };
 
+//iterate over the nodes array invoking the callback on each node
 Graph.prototype.forEachNode = function(cb){
   for (var i = 0; i < this.nodes.length; i++) {
     cb(this.nodes[i]);
