@@ -6,9 +6,11 @@ var Set = function(){
 };
 
 var setPrototype = {};
-
+//only allow unique values in the set
 setPrototype.add = function(item){
-  this._storage.push(item);
+  if (this._storage.indexOf(item) === -1) {
+    this._storage.push(item);
+  }
 };
 
 setPrototype.contains = function(item){
